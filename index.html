@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/dc.css" />
+
+    <!-- <link href="static/arcpp.css" rel="stylesheet" type="text/css"> -->
+
+    <title>UParma lookup</title>
+</head>
+
+<body id="page-top" onload="uparma()">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger text-white" href="#page-top">Universal Parameter translations</a>
+            <button class="navbar-toggler navbar-toggler-right font-weight-bold text-white" type="button"
+                data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-white"
+                            href="#about">About</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-white"
+                            href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section class="page-section portfolio first-section" id="about">
+        <div class="container">
+            <div class="row">
+                <h2 class="page-section-heading text-secondary mb-0">About</h2>
+            </div>
+            <div class="row">
+                <p>Yea - there is some css screw up right there :)</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Proteomes Section -->
+    <section class="page-section portfolio" id="proteomes">
+        <div class="container">
+            <h2 class="page-section-heading text-secondary mb-0">Filters</h2>
+            <div class="row">
+                <p>
+                    Use the categories or the search field to filter parameters
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div id="tag-group">
+                        <strong>tags</strong>
+                        <a class="reset"
+                            href="javascript:tags.filterAll();updateTable();dataTable.redraw();dc.redrawAll();"
+                            style="display: none;">reset</a>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div id="style-group">
+                        <strong>styles</strong>
+                        <a class="reset"
+                            href="javascript:styles.filterAll();updateTable();dataTable.redraw();dc.redrawAll();"
+                            style="display: none;">reset</a>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <!--
+                <div class="col-lg-4 col-md-6">
+                    <div id="overlap-group">
+                        <strong>Overlap between Datasets</strong>
+                        <a class="reset" href="javascript:overlapCats.filterAll();dc.redrawAll();"
+                            style="display: none;">reset</a>
+                        <div class="clearfix"></div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="row">
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div id="search"></div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="dc-data-count">
+                        <span class="filter-count"></span> selected out of <span class="total-count"></span> records |
+                        <a href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
+                    </div>
+                </div>
+                <div class="col-sm-4" id="paging">
+                    <input id="Prev" class="btn btn-secondary" role="button" type="button" value="Prev"
+                        onclick="javascript:prevPage()" />
+                    <input id="Next" class="btn btn-secondary" role="button" type="button" value="Next"
+                        onclick="javascript:nextPage()" />
+                    Showing <span id="begin"></span>-<span id="end"></span> of <span id="size"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <table class="table table-hover" id="dc-table-graph">
+                        <thead>
+                            <tr class='table-header'>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <!-- <section class="page-section portfolio" id="contact">
+        <div class="container">
+            <h2 class="page-section-heading text-secondary mb-0">Contact</h2>
+            <p></p>
+        </div>
+    </section> -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; UParma organization</span>
+                </div>
+                <!-- <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li class="list-inline-item">
+
+                            <a class="portfolio-link text-secondary" data-toggle="modal" href="#privacyModal">Privacy
+                                Policy</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="portfolio-link text-secondary" data-toggle="modal" href="#tou">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div> -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="static/d3.js"></script>
+    <script type="text/javascript" src="static/crossfilter.js"></script>
+    <script type="text/javascript" src="static/dc.js"></script>
+    <script type="text/javascript" src="static/colorbrewer.js"></script>
+
+    <script type="text/javascript" src="static/uparma.js"></script>
+
+</body>
+
+</html>
