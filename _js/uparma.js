@@ -16,7 +16,7 @@ var tableOffset = 0;
 var tablePageSize = 5;
 
 function uparma() {
-  d3.json('parameters.json').then(function (data) {
+  d3.json('https://raw.githubusercontent.com/uparma/uparma-lib/master/jsons/parameters.json').then(function (data) {
     // Since its a csv file we need to format the data a bit.
     // data.forEach(function (d, i) {
     //   if (!d.hasOwnProperty("tags")) {
